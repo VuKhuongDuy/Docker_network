@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+    ubuntu_1:
+        image: ubuntu:16.04
+        container_name: ubuntu_1
+        # ports:
+        #     - 8080:3000
+        networks:
+            - network1
+    ubuntu_2:
+        image: ubuntu:16.04
+        container_name: ubuntu_2
+        # ports:
+        #     - 8080:3000
+        networks:
+            - network1
+    
+networks:
+    network1:
+        driver: bridge
