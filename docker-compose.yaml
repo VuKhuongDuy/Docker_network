@@ -2,20 +2,46 @@ version: "3"
 
 services:
     ubuntu_1:
-        image: ubuntu:16.04
+        image: myubuntu
+        build: .
         container_name: ubuntu_1
-        # ports:
-        #     - 8080:3000
+        command: tail -F anything
+        ports:
+            - 8080:3000
         networks:
             - network1
     ubuntu_2:
-        image: ubuntu:16.04
+        image: myubuntu
+        build: .
         container_name: ubuntu_2
+        command: tail -F anything
         # ports:
         #     - 8080:3000
         networks:
             - network1
     
+    ubuntu_3:
+        image: myubuntu
+        build: .
+        container_name: ubuntu_3
+        command: tail -F anything
+        # ports:
+        #     - 8080:3000
+        networks:
+            - network2
+
+    ubuntu_4:
+        image: myubuntu
+        build: .
+        container_name: ubuntu_4
+        command: tail -F anything
+        # ports:
+        #     - 8080:3000
+        networks:
+            - network2
+
 networks:
     network1:
+        driver: bridge
+    network2:
         driver: bridge
